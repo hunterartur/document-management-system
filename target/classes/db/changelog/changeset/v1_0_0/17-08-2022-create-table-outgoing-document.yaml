@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-outgoing-document
+      author: AIshmaev
+      changes:
+        - createTable:
+            tableName: outgoing_document
+            columns:
+              - column:
+                  name: document_id
+                  type: varchar(64)
+                  constraints:
+                    foreignKeyName: document_outgoing_fk
+                    referencedTableName: document
+                    referencedColumnNames: id
+              - column:
+                  name: sender_id
+                  type: varchar(64)
+                  constraints:
+                    foreignKeyName: sender_outgoing_document_fk
+                    referencedTableName: person
+                    referencedColumnNames: id
+              - column:
+                  name: delivery_method
+                  type: varchar(50)
+                  constraints:
+                    nullable: false

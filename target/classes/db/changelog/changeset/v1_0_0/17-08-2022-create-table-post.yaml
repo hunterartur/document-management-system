@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-post #текстовый идентификатор (Обязателен)
+      author: AIshmaev # автор (Обязателен)
+      changes:
+        - createTable: # создаем новую таблицу
+            tableName: post
+            columns: # объявления колонок
+              - column:
+                  name: id
+                  type: varchar(64)
+                  autoIncrement: false
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<wrapper>
+    <items>
+        <item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="department">
+            <id>1a0f7c3c-3641-45b4-abc8-960f70f368ad</id>
+            <fullName>Information technologic</fullName>
+            <shortName>IT</shortName>
+            <director>
+                <id>89e7db31-aace-4b32-b570-db5e716ffaec</id>
+                <firstName>Artur</firstName>
+                <lastName>Ishmaev</lastName>
+                <patronymic>Ilgizovich</patronymic>
+                <post>
+                    <id>15f717ee-a312-412f-ad97-40e0e89934db</id>
+                    <name>Java junior developer</name>
+                </post>
+                <photo>C:\Photos\AIIPhoto.jpg</photo>
+                <birthday>1994-01-04T00:00:00+05:00</birthday>
+                <phoneNumber>+7 987 040 00 72</phoneNumber>
+            </director>
+            <contactPhoneNumbers>+7 963 555 99 88</contactPhoneNumbers>
+            <organization>
+                <id>bf1cd7bc-2674-4718-a824-7f87057a6f60</id>
+                <fullName>Russian Railways</fullName>
+                <shortName>RZD</shortName>
+                <director>
+                    <id>371a9d18-8124-4691-a01f-f1b65e2b7dff</id>
+                    <firstName>Arkadiy</firstName>
+                    <lastName>Petrov</lastName>
+                    <patronymic>Igorevich</patronymic>
+                    <post>
+                        <id>6dae6981-4768-4b0d-aaf4-0b5f96a2ecbb</id>
+                        <name>Java senior developer</name>
+                    </post>
+                    <photo>C:\Photos\APIPhoto.jpg</photo>
+                    <birthday>1991-03-11T00:00:00+05:00</birthday>
+                    <phoneNumber>+7 917 234 43 23</phoneNumber>
+                </director>
+                <contactPhoneNumbers>+7 987 000 22 55</contactPhoneNumbers>
+                <contactPhoneNumbers>+7 987 540 19 19</contactPhoneNumbers>
+            </organization>
+        </item>
+        <item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="department">
+            <id>59a1a5d5-c028-48c7-ba21-252384f6435f</id>
+            <fullName>Human hunter</fullName>
+            <shortName>HR</shortName>
+            <director>
+                <id>1a8b1565-4802-4301-8564-2f1fdb3d134c</id>
+                <firstName>Alina</firstName>
+                <lastName>Ivanova</lastName>
+                <patronymic>Ptrovna</patronymic>
+                <post>
+                    <id>68c894e1-9878-4a88-ad25-8a517171e88d</id>
+                    <name>Java middle developer</name>
+                </post>
+                <photo>C:\Photos\IAPPhoto.jpg</photo>
+                <birthday>1991-03-23T00:00:00+05:00</birthday>
+                <phoneNumber>+7 937 111 43 36</phoneNumber>
+            </director>
+            <contactPhoneNumbers>+7 996 017 54 12</contactPhoneNumbers>
+            <organization>
+                <id>bf1cd7bc-2674-4718-a824-7f87057a6f60</id>
+                <fullName>Russian Railways</fullName>
+                <shortName>RZD</shortName>
+                <director>
+                    <id>371a9d18-8124-4691-a01f-f1b65e2b7dff</id>
+                    <firstName>Arkadiy</firstName>
+                    <lastName>Petrov</lastName>
+                    <patronymic>Igorevich</patronymic>
+                    <post>
+                        <id>6dae6981-4768-4b0d-aaf4-0b5f96a2ecbb</id>
+                        <name>Java senior developer</name>
+                    </post>
+                    <photo>C:\Photos\APIPhoto.jpg</photo>
+                    <birthday>1991-03-11T00:00:00+05:00</birthday>
+                    <phoneNumber>+7 917 234 43 23</phoneNumber>
+                </director>
+                <contactPhoneNumbers>+7 987 000 22 55</contactPhoneNumbers>
+                <contactPhoneNumbers>+7 987 540 19 19</contactPhoneNumbers>
+            </organization>
+        </item>
+    </items>
+</wrapper>

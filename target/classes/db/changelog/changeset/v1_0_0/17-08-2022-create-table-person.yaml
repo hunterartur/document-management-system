@@ -1,0 +1,57 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-person
+      author: AIshmaev
+      changes:
+        - createTable:
+            tableName: person
+            columns:
+              - column:
+                  name: id
+                  type: varchar(64)
+                  autoIncrement: false
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: patronymic
+                  type: varchar(70)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: photo
+                  type: clob
+              - column:
+                  name: birthday
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: phone_number
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: post_id
+                  type: varchar(64)
+                  constraints:
+                    foreignKeyName: post_person_fk
+                    referencedTableName: post
+                    referencedColumnNames: id
+              - column:
+                  name: department_id
+                  type: varchar(64)
+                  constraints:
+                    foreignKeyName: department_person_fk
+                    referencedTableName: department
+                    referencedColumnNames: id

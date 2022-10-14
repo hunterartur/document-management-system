@@ -1,0 +1,83 @@
+{
+  "groups": [
+    {
+      "name": "documentflow",
+      "type": "ru.citros.documentflow.configuration.CommonConfigurationProperties",
+      "sourceType": "ru.citros.documentflow.configuration.CommonConfigurationProperties"
+    },
+    {
+      "name": "documentflow.datasource",
+      "type": "ru.citros.documentflow.configuration.DatabaseConfigurationProperties",
+      "sourceType": "ru.citros.documentflow.configuration.DatabaseConfigurationProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "documentflow.count-documents",
+      "type": "java.lang.Integer",
+      "description": "Количество документов",
+      "sourceType": "ru.citros.documentflow.configuration.CommonConfigurationProperties"
+    },
+    {
+      "name": "documentflow.datasource.driver-class-name",
+      "type": "java.lang.String",
+      "description": "Имя класса драйвер",
+      "sourceType": "ru.citros.documentflow.configuration.DatabaseConfigurationProperties"
+    },
+    {
+      "name": "documentflow.datasource.password",
+      "type": "java.lang.String",
+      "description": "Пароль пользователя БД",
+      "sourceType": "ru.citros.documentflow.configuration.DatabaseConfigurationProperties"
+    },
+    {
+      "name": "documentflow.datasource.url",
+      "type": "java.lang.String",
+      "description": "Путь к БД",
+      "sourceType": "ru.citros.documentflow.configuration.DatabaseConfigurationProperties"
+    },
+    {
+      "name": "documentflow.datasource.username",
+      "type": "java.lang.String",
+      "description": "Имя ползователя БД",
+      "sourceType": "ru.citros.documentflow.configuration.DatabaseConfigurationProperties"
+    },
+    {
+      "name": "documentflow.date-interval",
+      "type": "java.lang.Integer",
+      "description": "Интервал дат",
+      "sourceType": "ru.citros.documentflow.configuration.CommonConfigurationProperties"
+    },
+    {
+      "name": "documentflow.length-generated-string",
+      "type": "java.lang.Integer",
+      "description": "Длина генерируемой строки",
+      "sourceType": "ru.citros.documentflow.configuration.CommonConfigurationProperties"
+    },
+    {
+      "name": "documentflow.path-to-department-xml-file",
+      "type": "java.lang.String",
+      "description": "Путь к xml файлу с отделами",
+      "sourceType": "ru.citros.documentflow.configuration.CommonConfigurationProperties"
+    },
+    {
+      "name": "documentflow.path-to-json-directory",
+      "type": "java.lang.String",
+      "description": "Путь к директории с json файлами",
+      "sourceType": "ru.citros.documentflow.configuration.CommonConfigurationProperties"
+    },
+    {
+      "name": "documentflow.path-to-organization-xml-file",
+      "type": "java.lang.String",
+      "description": "Путь к xml файлу с организациями",
+      "sourceType": "ru.citros.documentflow.configuration.CommonConfigurationProperties"
+    },
+    {
+      "name": "documentflow.path-to-person-xml-file",
+      "type": "java.lang.String",
+      "description": "Путь к xml файлу c сотрудниками",
+      "sourceType": "ru.citros.documentflow.configuration.CommonConfigurationProperties"
+    }
+  ],
+  "hints": []
+}

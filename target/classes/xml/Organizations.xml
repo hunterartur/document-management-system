@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<wrapper>
+    <items>
+        <item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="organization">
+            <id>bf1cd7bc-2674-4718-a824-7f87057a6f60</id>
+            <fullName>Russian Railways</fullName>
+            <shortName>RZD</shortName>
+            <director>
+                <id>371a9d18-8124-4691-a01f-f1b65e2b7dff</id>
+                <firstName>Arkadiy</firstName>
+                <lastName>Petrov</lastName>
+                <patronymic>Igorevich</patronymic>
+                <post>
+                    <id>6dae6981-4768-4b0d-aaf4-0b5f96a2ecbb</id>
+                    <name>Java senior developer</name>
+                </post>
+                <photo>C:\Photos\APIPhoto.jpg</photo>
+                <birthday>1991-03-11T00:00:00+05:00</birthday>
+                <phoneNumber>+7 917 234 43 23</phoneNumber>
+            </director>
+            <contactPhoneNumbers>+7 987 000 22 55</contactPhoneNumbers>
+            <contactPhoneNumbers>+7 987 540 19 19</contactPhoneNumbers>
+        </item>
+    </items>
+</wrapper>

@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/v1_0_0/17-08-2022-create-table-post.yaml
+  - include:
+      file: db/changelog/changeset/v1_0_0/17-08-2022-create-table-organization.yaml
+  - include:
+      file: db/changelog/changeset/v1_0_0/17-08-2022-create-table-department.yaml
+  - include:
+      file: db/changelog/changeset/v1_0_0/17-08-2022-create-table-person.yaml
+  - include:
+      file: db/changelog/changeset/v1_0_0/17-08-2022-create-table-document.yaml
+  - include:
+      file: db/changelog/changeset/v1_0_0/17-08-2022-create-table-incoming-document.yaml
+  - include:
+      file: db/changelog/changeset/v1_0_0/17-08-2022-create-table-outgoing-document.yaml
+  - include:
+      file: db/changelog/changeset/v1_0_0/17-08-2022-create-table-task-document.yaml
+  - include:
+      file: db/changelog/changeset/v1_0_0/17-08-2022-add-director-in-table-organization.yaml
+  - include:
+      file: db/changelog/changeset/v1_0_0/17-08-2022-add-director-in-table-department.yaml

@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-staff
+      author: AIshmaev
+      changes:
+        - createTable:
+            tableName: staff
+            columns:
+              - column:
+                  name: id
+                  type: varchar(64)
+                  autoIncrement: false
+                  constraints:
+                    primaryKey: true
+                    nullable: false

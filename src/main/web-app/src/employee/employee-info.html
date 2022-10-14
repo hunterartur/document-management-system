@@ -1,0 +1,6 @@
+<h4><label class="form-label">ФИО: </label><span> {{employee.lastName + ' ' + employee.firstName + ' ' + employee.patronymic}}</span>
+</h4>
+<h4><label class="form-label">Дата рождения: </label><span> {{employee.birthday | date:'dd.MM.yyyy'}}</span></h4>
+<h4><label class="form-label">Должность: </label><span> {{employee.post.name}}</span></h4>
+<h4><label class="form-label">Отдел: </label><span> {{employee.department.fullName}}</span></h4>
+<h4><label class="form-label">Номер телефона: </label><span> {{employee.phoneNumber}}</span></h4>

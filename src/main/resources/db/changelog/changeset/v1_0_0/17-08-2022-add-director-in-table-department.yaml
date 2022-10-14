@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-director-in-table-department
+      author: AIshmaev
+      runOnChange: true
+      changes:
+        - addColumn:
+            tableName: department
+            columns:
+              - column:
+                  name: director_id
+                  type: varchar(64)
+                  constraints:
+                    foreignKeyName: person_department_fk
+                    referencedTableName: person
+                    referencedColumnNames: id

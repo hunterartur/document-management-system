@@ -1,0 +1,19 @@
+<script type="text/ng-template" id="createViewModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title-bottom">{{modalView.title}}</h3>
+    </div>
+    <div class="modal-body" id="modal-body-bottom">
+        <div ng-show="modalView.visible">
+            <employee-form></employee-form>
+        </div>
+        <div ng-show="!modalView.visible">
+            <document-form></document-form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button"
+                ng-click="modalView.ok(modalView.object)">Сохранить
+        </button>
+        <button class="btn btn-warning" type="button" ng-click="modalView.cancel()">Отменить</button>
+    </div>
+</script>

@@ -1,0 +1,21 @@
+<h4><label class="form-label">Наименование: </label><span> {{document.name}}</span></h4>
+<h4><label class="form-label">Текст: </label><span> {{document.text}}</span></h4>
+<h4><label class="form-label">Дата регистрации: </label><span> {{document.registrationDate | date:'MM.dd.yyyy'}}</span></h4>
+<h4><label class="form-label">Регистрационный номер: </label><span> {{document.registrationNumber}}</span></h4>
+<h4><label class="form-label">Автор: </label><span  ng-click="OpenTab(employee)"> {{document.author.firstName + ' ' + document.author.lastName + ' ' + document.author.patronymic}}</span></h4>
+<h4 ng-if="document.sender"><label class="form-label">Отправитель: </label><span> {{document.sender.firstName + ' ' + document.sender.lastName + ' ' + document.sender.patronymic}}</span></h4>
+<h4 ng-if="document.recipient"><label class="form-label">Получатель: </label><span> {{document.recipient.firstName + ' ' + document.recipient.lastName + ' ' + document.recipient.patronymic}}</span></h4>
+<h4><label class="form-label">Метод доставки: </label><span> {{document.deliveryMethod}}</span></h4>
+<h4 ng-if="document.executor"><label class="form-label">Исполнитель: </label><span> {{document.executor.firstName + ' ' + document.executor.lastName + ' ' + document.executor.patronymic}}</span></h4>
+<h4 ng-if="document.outgoingNumber"><label class="form-label">Исходящий номер: </label><span> {{document.outgoingNumber}}</span></h4>
+<h4 ng-if="document.outgoingRegistrationDate">
+    <label class="form-label">Исходящий регистрационная дата: </label>
+    <span> {{document.outgoingRegistrationDate | date:'MM.dd.yyyy'}}</span></h4>
+
+<h4 ng-if="document.dateOfIssue">
+    <label class="form-label">Дата завершения: </label>
+    <span> {{document.dateOfIssue | date:'MM.dd.yyyy'}}</span></h4>
+
+<h4 ng-if="document.termOfExecution"><label class="form-label">Срок исполнения: </label><span> {{document.termOfExecution}}</span></h4>
+<h4 ng-if="document.control"><label class="form-label">Признак контрольности: </label><span> {{document.control}}</span></h4>
+<h4 ng-if="document.control"><label class="form-label">Контролирующий: </label><span> {{document.controller.firstName + ' ' + document.controller.lastName + ' ' + document.controller.patronymic}}</span></h4>

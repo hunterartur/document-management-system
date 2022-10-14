@@ -1,0 +1,48 @@
+<uib-tab index="-1">
+    <uib-tab-heading>
+        <div style="padding: 5px;">
+            <span>Главная вкладка</span>
+        </div>
+    </uib-tab-heading>
+    <div class="row nav-buttons" ng-controller="modalView as modalView">
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <modal-window></modal-window>
+            <button type="button" class="btn btn-default" ng-click="modalView.open('employee')">Создать пользователя
+            </button>
+            <button type="button" class="btn btn-default" ng-click="modalView.open('document')">Создать документ
+            </button>
+        </div>
+    </div>
+    <div class="dashboard-container">
+        <div class="table-scrollable" ng-controller="employeeContentController as employeeContentController">
+            <table class="table table-hover table-sortable table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>имя</th>
+                    <th>Фамилия</th>
+                    <th>Отчество</th>
+                    <th>Должность</th>
+                    <th>Отдел</th>
+                    <th>День рождение</th>
+                    <th>Номер телефона</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="employee in employeeContentController.employees"
+                    ng-click="OpenTab(employee)" class="baseTable">
+                    <td style="width: 15px;">{{$index + 1}}</td>
+                    <td>{{employee.lastName}}</td>
+                    <td>{{employee.firstName}}</td>
+                    <td>{{employee.patronymic}}</td>
+                    <td>{{employee.post.name}}</td>
+                    <td>{{employee.department.fullName}}</td>
+                    <td>{{employee.birthday | date:'dd.MM.yyyy'}}</td>
+                    <td>{{employee.phoneNumber}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+</uib-tab>

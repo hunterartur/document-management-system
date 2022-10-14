@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-incoming-document
+      author: AIshmaev
+      changes:
+        - createTable:
+            tableName: incoming_document
+            columns:
+              - column:
+                  name: document_id
+                  type: varchar(64)
+                  constraints:
+                    foreignKeyName: document_incoming_fk
+                    referencedTableName: document
+                    referencedColumnNames: id
+              - column:
+                  name: sender_id
+                  type: varchar(64)
+                  constraints:
+                    foreignKeyName: sender_incoming_document_fk
+                    referencedTableName: person
+                    referencedColumnNames: id
+              - column:
+                  name: recipient_id
+                  type: varchar(64)
+                  constraints:
+                    foreignKeyName: recipient_incoming_document_fk
+                    referencedTableName: person
+                    referencedColumnNames: id
+              - column:
+                  name: outgoing_number
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: outgoing_registration_date
+                  type: date
+                  constraints:
+                    nullable: false

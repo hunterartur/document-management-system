@@ -1,0 +1,34 @@
+<form name="form">
+  <label for="lastName" class="form-label">Фамилия: </label>
+  <input type="text" id="lastName" name="lastName" ng-model="modalView.object.lastName"
+         class="form-control" required>
+  <label for="firstName" class="form-label">Имя: </label>
+  <input type="text" id="firstName" ng-model="modalView.object.firstName"
+         class="form-control" required>
+  <label for="patronymic" class="form-label">Отчество: </label>
+  <input type="text" id="patronymic" ng-model="modalView.object.patronymic"
+         class="form-control" required>
+
+  <label for="birthday" class="form-label">Дата рождения: </label>
+  <input type="date" id="birthday" ng-model="modalView.object.birthday"
+         datepicker-options="{showWeeks:false, maxDate: new Date()}"
+         class="form-control" required>
+
+  <label for="department" class="form-label">Отдел: </label>
+  <select id="department" class="form-control"
+          ng-options="department as department.fullName for department in modalView.departments"
+          ng-model="modalView.object.department" required>
+  </select>
+
+  <label for="post" class="form-label">Должность: </label>
+  <select id="post" class="form-control"
+          ng-model="modalView.object.post"
+          ng-options="post as post.name for post in modalView.posts" required>
+  </select>
+  <label for="phoneNumber" class="form-label">Номер телефона: </label>
+  <input type="text" id="phoneNumber" ng-model="modalView.object.phoneNumber"
+         class="form-control">
+  <label for="photo" class="form-label">Фотография: </label>
+  <input type="file" accept="image/*" select-image id="photo" ng-model="modalView.object.photo"
+         class="form-control">
+</form>

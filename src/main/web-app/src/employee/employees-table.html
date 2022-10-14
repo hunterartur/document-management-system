@@ -1,0 +1,22 @@
+<div class="dashboard-container">
+    <div class="table-scrollable" ng-controller="employeesController as employeesController">
+        <table class="table table-hover table-sortable table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Сотрудники</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="employee in employeesController.employees"
+                ng-click="OpenTab(employee)"
+                class="navCommon">
+                <td>{{$index + 1}}</td>
+                <td>
+                    {{employee.lastName + ' ' + employee.firstName + ' ' + employee.patronymic}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-task-document
+      author: AIshmaev
+      changes:
+        - createTable:
+            tableName: task_document
+            columns:
+              - column:
+                  name: document_id
+                  type: varchar(64)
+                  constraints:
+                    foreignKeyName: document_task_fk
+                    referencedTableName: document
+                    referencedColumnNames: id
+              - column:
+                  name: date_of_issue
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: term_of_execution
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: executor
+                  type: varchar(64)
+                  constraints:
+                    foreignKeyName: executor_task_document_fk
+                    referencedTableName: person
+                    referencedColumnNames: id
+              - column:
+                  name: control
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: controller
+                  type: varchar(64)
+                  constraints:
+                    foreignKeyName: controller_task_document_fk
+                    referencedTableName: person
+                    referencedColumnNames: id

@@ -1,0 +1,134 @@
+<ng-form name="form">
+    <label for="name" class="form-label">Наименование: </label>
+    <input type="text" id="name" ng-model="modalView.object.name"
+           class="form-control" required>
+
+    <label for="text" class="form-label">Текст: </label>
+    <textarea id="text" ng-model="modalView.object.text"
+              class="form-control" required></textarea>
+
+    <label for="registrationNumber" class="form-label">Регистрационный номер: </label>
+    <input type="text" id="registrationNumber" ng-model="modalView.object.registrationNumber"
+           class="form-control" required>
+
+    <label for="registrationDate" class="form-label">Дата регистрация: </label>
+    <input type="date" id="registrationDate" ng-model="modalView.object.registrationDate"
+           class="form-control" required>
+
+    <label for="author" class="form-label">Автор: </label>
+    <select id="author" class="form-control"
+            ng-options="employees as employees.lastName for employees in modalView.employees"
+            ng-model="modalView.object.author" required>
+    </select>
+
+
+    <label ng-if="modalView.object.id == null">
+        <input type="radio" ng-model="modalView.object.documentType" value="INCOMING_DOCUMENT">
+        Входящий документ
+        <br/>
+    </label>
+    <label ng-if="modalView.object.id == null">
+        <input type="radio" ng-model="modalView.object.documentType" value="OUTGOING_DOCUMENT">
+        Исходящий документ
+        <br/>
+    </label>
+    <label ng-if="modalView.object.id == null">
+        <input type="radio" ng-model="modalView.object.documentType" value="TASK_DOCUMENT">
+        Поручение
+        <br/>
+    </label>
+
+
+    <label
+            ng-if="modalView.object.documentType==='INCOMING_DOCUMENT'
+                    || modalView.object.documentType==='OUTGOING_DOCUMENT'
+                    || modalView.object.sender !== undefined"
+            for="sender" class="form-label">Отправитель: </label>
+    <select
+            ng-if="modalView.object.documentType==='INCOMING_DOCUMENT'
+                    || modalView.object.documentType==='OUTGOING_DOCUMENT'
+                    || modalView.object.object.sender !== undefined"
+            id="sender" class="form-control"
+            ng-options="employees as employees.lastName for employees in modalView.employees"
+            ng-model="modalView.object.sender">
+    </select>
+
+    <label ng-if="modalView.object.documentType==='INCOMING_DOCUMENT'
+                    || modalView.object.recipient !== undefined"
+           for="recipient"
+           class="form-label">Получатель: </label>
+    <select ng-if="modalView.object.documentType==='INCOMING_DOCUMENT'
+                    || modalView.object.recipient !== undefined"
+            id="recipient" class="form-control"
+            ng-options="employees as employees.lastName for employees in modalView.employees"
+            ng-model="modalView.object.recipient">
+    </select>
+
+    <label ng-if="modalView.object.documentType==='OUTGOING_DOCUMENT'
+                    || modalView.object.deliveryMethod !== undefined"
+           for="deliveryMethod" class="form-label">Метод доставки: </label>
+    <select ng-if="modalView.object.documentType==='OUTGOING_DOCUMENT'
+                    || modalView.object.deliveryMethod !== undefined"
+            type="text" id="deliveryMethod" ng-model="modalView.object.deliveryMethod"
+            class="form-control">
+        <option ng-repeat="deliveryMethod in modalView.deliveryMethods" ng-value="deliveryMethod">{{deliveryMethod}}</option>
+    </select>
+
+
+
+    <label ng-if="modalView.object.documentType==='TASK_DOCUMENT'
+                    || modalView.object.controller !== undefined" for="executor"
+           class="form-label">Исполнитель: </label>
+    <select ng-if="modalView.object.documentType==='TASK_DOCUMENT'" id="executor" class="form-control"
+            ng-options="employees as employees.lastName for employees in modalView.employees"
+            ng-model="modalView.object.executor">
+    </select>
+
+    <label ng-if="modalView.object.documentType==='INCOMING_DOCUMENT'
+                    || modalView.object.outgoingNumber !== undefined"
+           for="outgoingNumber" class="form-label">Исходящий номер: </label>
+    <input ng-if="modalView.object.documentType==='INCOMING_DOCUMENT'
+                    || modalView.object.outgoingNumber !== undefined"
+           type="text" id="outgoingNumber" ng-model="modalView.object.outgoingNumber"
+           class="form-control">
+
+    <label ng-if="modalView.object.documentType==='INCOMING_DOCUMENT'
+                    || modalView.object.outgoingRegistrationDate !== undefined"
+           for="outgoingRegistrationDate" class="form-label">Исходящая дата регистрации: </label>
+    <input ng-if="modalView.object.documentType==='INCOMING_DOCUMENT'
+                    || modalView.object.outgoingRegistrationDate !== undefined"
+           type="date" id="outgoingRegistrationDate" ng-model="modalView.object.outgoingRegistrationDate"
+           class="form-control">
+
+    <label ng-if="modalView.object.documentType==='TASK_DOCUMENT'
+                    || modalView.object.dateOfIssue !== undefined"
+           for="dateOfIssue" class="form-label">Дата завершения: </label>
+    <input ng-if="modalView.object.documentType==='TASK_DOCUMENT'
+                    || modalView.object.dateOfIssue !== undefined"
+           type="date" id="dateOfIssue" ng-model="modalView.object.dateOfIssue"
+           class="form-control">
+
+    <label ng-if="modalView.object.documentType==='TASK_DOCUMENT'
+                    || modalView.object.termOfExecution !== undefined"
+           for="termOfExecution" class="form-label">Срок исполнения: </label>
+    <input ng-if="modalView.object.documentType==='TASK_DOCUMENT'
+                    || modalView.object.termOfExecution !== undefined"
+           type="text" id="termOfExecution" ng-model="modalView.object.termOfExecution"
+           class="form-control">
+
+    <label ng-if="modalView.object.documentType==='TASK_DOCUMENT'"
+           for="control" class="form-label">Признак контрольности: </label>
+    <input ng-if="modalView.object.documentType==='TASK_DOCUMENT'"
+           type="checkbox" id="control" ng-model="modalView.object.control"
+           ng-value="modalView.object.control"><br>
+
+    <label ng-if="modalView.object.control
+                    && modalView.object.documentType==='TASK_DOCUMENT'"
+           for="controller" class="form-label">Контролирующий: </label>
+    <select ng-if="modalView.object.control
+                    && modalView.object.documentType==='TASK_DOCUMENT'"
+            id="controller" class="form-control"
+            ng-options="employees as employees.lastName for employees in modalView.employees"
+            ng-model="modalView.object.controller">
+    </select>
+</ng-form>

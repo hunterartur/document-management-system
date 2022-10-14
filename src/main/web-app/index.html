@@ -1,0 +1,143 @@
+<!doctype html>
+<html ng-app="documentflowApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/style.css">
+    <title>Documentflow</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+</head>
+<body ng-cloak>
+<div class="container-fluid" ng-controller="init as init" ng-init="init.init()">
+    <div class="row">
+        <div class="col-lg-3">
+            <employees-table></employees-table>
+            <br>
+            <documents-table></documents-table>
+        </div>
+        <div class="col-lg-9" ng-controller="tabsController as tabsCtlr">
+            <uib-tabset active="tabsCtlr.activeTabIndex">
+                <welcome-tab></welcome-tab>
+
+                <uib-tab index="tab.id" ng-repeat="tab in tabsCtlr.tabs.employees"
+                         select="tabsCtlr.selectTab(tab)">
+                    <uib-tab-heading>
+                        <span class="closeButton" ng-click="tabsCtlr.closeTab(tab)">&times;</span>
+                        <span>{{tab.lastName}}</span>
+                    </uib-tab-heading>
+
+                    <div class="row nav-buttons" ng-controller="modalView as modalView">
+                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                            <button type="button" class="btn btn-default" name="submitbtn"
+                                    ng-click="tabsCtlr.closeTab(tab)">Закрыть
+                            </button>
+                            <confirm-modal-window></confirm-modal-window>
+                            <button type="button" class="btn btn-default"
+                                    ng-click="modalView.openConfirmModals('employee', tab, 'DELETE')">Удалить
+                            </button>
+                            <modal-window></modal-window>
+                            <button type="button" class="btn btn-default"
+                                    ng-click="modalView.open('employee', tab, 'PUT')">Редактировать
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row person-info">
+                        <div class="col-lg-4">
+                            <employee-info employee="tab"></employee-info>
+                        </div>
+                        <div class="col-lg-4">
+                            <img ng-src="{{tab.photo}}" ng-model="tab.photo" width="220" height="300" alt="photo">
+                        </div>
+                    </div>
+                    <div class="dashboard-container" ng-if="tab.employeeDocuments.length !== 0">
+                        <div class="table-scrollable" ng-controller="documentsController as documentsController">
+                            <table class="table table-hover table-sortable table-striped">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Наименование</th>
+                                    <th>Текст</th>
+                                    <th>Регистрационный номер</th>
+                                    <th>Регистрационная дата</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="document in tab.employeeDocuments">
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{document.name}}</td>
+                                    <td>{{document.text}}</td>
+                                    <td>{{document.registrationNumber}}</td>
+                                    <td>{{document.registrationDate}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </uib-tab>
+
+                <uib-tab index="tab.id" ng-repeat="tab in tabsCtlr.tabs.documents"
+                         select="tabsCtlr.selectTab(tab)">
+                    <uib-tab-heading>
+                        <span class="closeButton" ng-click="tabsCtlr.closeTab(tab)">&times;</span>
+                        <span>{{tab.name}}</span>
+                    </uib-tab-heading>
+
+                    <div class="row nav-buttons" ng-controller="modalView as modalView">
+                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                            <button type="button" class="btn btn-default" name="submitbtn" value="subm"
+                                    ng-click="tabsCtlr.closeTab(tab)">Закрыть
+                            </button>
+                            <confirm-modal-window></confirm-modal-window>
+                            <button type="button" class="btn btn-default"
+                                    ng-click="modalView.openConfirmModals('document', tab, 'DELETE')">Удалить
+                            </button>
+                            <modal-window></modal-window>
+                            <button type="button" class="btn btn-default"
+                                    ng-click="modalView.open('document', tab, 'PUT')">Редактировать
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row person-info">
+                        <div class="col-lg-6">
+                            <document-tab document="tab"></document-tab>
+                        </div>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>
+<script src="dist/main.js"></script>
+<!--<script src="src/js/angular-main.js"></script>-->
+<!--<script src="src/employee/employees-controller.js"></script>-->
+<!--<script src="src/employee/employee-service.js"></script>-->
+<!--<script src="src/employee/employee-content-controller.js"></script>-->
+<!--<script src="src/employee/employee-controller.js"></script>-->
+<!--<script src="src/document/document-controllers.js"></script>-->
+<!--<script src="src/document/document-service.js"></script>-->
+<!--<script src="src/js/controllers/modal-instance-controller.js"></script>-->
+<!--<script src="src/js/controllers/initialization-controller.js"></script>-->
+<!--<script src="src/tabs/tab-controller.js"></script>-->
+<!--<script src="src/js/controllers/modal-view-controller.js"></script>-->
+<!--<script src="src/tabs/tab-service.js"></script>-->
+<!--<script src="src/js/directives/directives.js"></script>-->
+<!--<script src="src/post/post-service.js"></script>-->
+<!--<script src="src/department/department-service.js"></script>-->
+<!--<script src="src/post/post-http-service.js"></script>-->
+<!--<script src="src/department/department-http-service.js"></script>-->
+<!--<script src="src/document/document-http-service.js"></script>-->
+<!--<script src="src/employee/employee-http-service.js"></script>-->
+<!--<script src="src/document/document-directives.js"></script>-->
+<!--<script src="src/document/document-interaction-with-server.js"></script>-->
+<!--<script src="src/document/document-processing.js"></script>-->
+<!--<script src="src/employee/employee-directives.js"></script>-->
+<!--<script src="src/employee/employee-interaction-with-server.js"></script>-->
+<!--<script src="src/employee/employee-processing.js"></script>-->
+</body>
+</html>

@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-department
+      author: AIshmaev
+      changes:
+        - createTable:
+            tableName: department
+            columns:
+              - column:
+                  name: id
+                  type: varchar(64)
+                  autoIncrement: false
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: full_name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: short_name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: organization_id
+                  type: varchar(64)
+                  constraints:
+                    foreignKeyName: organization_department_fk
+                    referencedTableName: organization
+                    referencedColumnNames: id
+              - column:
+                  name: contact_number
+                  type: long varchar
+                  constraints:
+                    nullable: true

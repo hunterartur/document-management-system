@@ -1,0 +1,22 @@
+<div class="dashboard-container">
+    <div class="table-scrollable" ng-controller="documentsController as documentsController">
+        <table class="table table-hover table-sortable table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Документы</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="document in documentsController.documents | orderBy:documentsController.sortParam"
+                ng-click="OpenTab(document)"
+                class="navCommon">
+                <td>{{$index + 1}}</td>
+                <td>
+                    {{document.name + ' №' + document.registrationNumber + ' от '}}{{document.registrationDate | date: 'dd.MM.yyyy'}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
